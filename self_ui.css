@@ -1,0 +1,19 @@
+html{
+    width: 100%;
+}
+body{
+    width: 100%;
+    margin: 0;
+    background: #F8F9FB;
+}
+input::-webkit-input-placeholder{
+    color: #C2CCD0;
+    font-size: 16px;
+    transform: translate(0, 2px);
+}
+:focus{
+    outline:none;
+}
+#app{
+    width: 100%;
+}
