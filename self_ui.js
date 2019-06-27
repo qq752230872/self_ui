@@ -75,7 +75,7 @@ Vue.component('self-feild-input', {
         },
         placeholder: {
             type: String,
-            default: 'placeholder'
+            default: ''
         },
         type: {
             type: String,
