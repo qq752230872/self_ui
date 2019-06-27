@@ -131,6 +131,70 @@ Vue.component('self-feild-input', {
         "</div>" +
         "</div>",
 })
+//表单编辑器
+Vue.component('self-feild-textarea', {
+    props: {
+        lable: {
+            type: String,
+            default: 'lable'
+        },
+        rows: {
+        	default: 3
+        },
+        placeholder: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        readonly: {
+            type: Boolean,
+            default: false
+        },
+        disabled: {
+            type: Boolean,
+            default: false
+        },
+    },
+    data: function () {
+        return {
+            styleObject: {
+                'width': '100%',
+                'display': 'flex',
+                'flex-direction': 'row',
+                'justify-content': 'center',
+                'align-items': 'center',
+                'background': whiteColor,
+            },
+            lableStyleObject: {
+                'width': '33%',
+                'padding': '12px 14px',
+            },
+            inputOutStyleObject: {
+                'width': '67%',
+                'padding': '12px 10px',
+            },
+            inputStyleObject: {
+                'width': '100%',
+                'border': '0',
+                'min-height': '24px',
+                'font-size': '14px',
+
+            },
+        }
+    },
+    template: "<div v-bind:style='styleObject'>" +
+        "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
+        "<div v-bind:style='inputOutStyleObject'>" +
+        "<textarea v-bind:style='inputStyleObject' v-bind:placeholder='placeholder' " +
+        "v-bind:rows='rows' v-model='value'  " +
+        "v-bind:readonly='readonly' v-bind:disabled='disabled'>" +
+        "</textarea>" +
+        "</div>" +
+        "</div>",
+})
 
 //长分割线
 Vue.component('self-line', {
