@@ -195,7 +195,69 @@ Vue.component('self-feild-textarea', {
         "</div>" +
         "</div>",
 })
-
+//表单超链接
+Vue.component('self-feild-a', {
+    props: {
+        lable: {
+            type: String,
+            default: 'lable'
+        },
+        value: {
+            type: String,
+            default: ''
+        },
+        href: {
+            type: String,
+            default: '#'
+        },
+        clickhref: {
+        	type: String,
+        	default: '#'
+        },
+    },
+    data: function () {
+        return {
+            styleObject: {
+                'width': '100%',
+                'height': '50px',
+                'display': 'flex',
+                'flex-direction': 'row',
+                'justify-content': 'center',
+                'align-items': 'center',
+                'background': whiteColor,
+            },
+            lableStyleObject: {
+                'width': '33%',
+                'padding': '12px 14px',
+            },
+            aOutStyleObject: {
+                'width': '67%',
+                'padding': '12px 10px',
+                'overflow':'hidden',
+                'text-overflow': 'ellipsis',
+            },
+            aStyleObject: {
+                'width': '100%',
+                'min-height': '24px',
+                'font-size': '12px',
+            },
+        }
+    },
+    methods: {
+    	aClick: function(){
+    		var url = "../self_ui/imgFrame.html?clickhref="+this.clickhref;
+    		
+    		window.open(url);
+        }
+    
+    },
+    template: "<div v-bind:style='styleObject'>" +
+        "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
+        "<div v-bind:style='aOutStyleObject'>" +
+        "<a v-bind:style='aStyleObject' :href='href' @click='aClick'>{{value}}</a>"+
+        "</div>" +
+        "</div>",
+})
 //长分割线
 Vue.component('self-line', {
     props: {
