@@ -1,6 +1,8 @@
-var whiteColor = '#FFFFFF';
-var backgroundColor = '#F8F9FB';//背景色 
-var mainColor = '#3CBAFF'; //主色
+var whiteColor = '#FFFFFF';			//白色
+var blackColor = '#000000';			//黑色
+var lineColor = '#E6E8EE';			//分割线颜色
+var backgroundColor = '#F8F9FB';	//背景色 
+var mainColor = '#3CBAFF';			//主色
 
 //按钮
 Vue.component('self-button', {
@@ -82,7 +84,6 @@ Vue.component('self-feild-input', {
             default: 'text'
         },
         value: {
-            type: String,
             default: ''
         },
         readonly: {
@@ -93,6 +94,10 @@ Vue.component('self-feild-input', {
             type: Boolean,
             default: false
         },
+        color: {
+        	type: String,
+        	default: blackColor
+        }
     },
     data: function () {
         return {
@@ -118,18 +123,29 @@ Vue.component('self-feild-input', {
                 'border': '0',
                 'min-height': '24px',
                 'font-size': '14px',
-
+                'color': this.color
             },
         }
     },
+    computed:{
+    	currentValue:function () {
+        	return this.value
+        }
+	},
     template: "<div v-bind:style='styleObject'>" +
         "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
         "<div v-bind:style='inputOutStyleObject'>" +
         "<input v-bind:style='inputStyleObject' v-bind:placeholder='placeholder' " +
-        "v-bind:type='type' v-model='value'  " +
+        "v-bind:type='type' :value='currentValue' @input='handleInput'" +
         "v-bind:readonly='readonly' v-bind:disabled='disabled'>" +
         "</div>" +
         "</div>",
+	methods: {
+    	handleInput(event) {
+        	var value = event.target.value;
+        	this.$emit('input', value); //触发 input 事件，并传入新值
+    	}
+	}
 })
 //表单编辑器
 Vue.component('self-feild-textarea', {
@@ -146,7 +162,6 @@ Vue.component('self-feild-textarea', {
             default: ''
         },
         value: {
-            type: String,
             default: ''
         },
         readonly: {
@@ -157,6 +172,10 @@ Vue.component('self-feild-textarea', {
             type: Boolean,
             default: false
         },
+        color: {
+        	type: String,
+        	default: blackColor
+        }
     },
     data: function () {
         return {
@@ -181,19 +200,30 @@ Vue.component('self-feild-textarea', {
                 'border': '0',
                 'min-height': '24px',
                 'font-size': '14px',
-
-            },
+                'color': this.color
+            }
         }
     },
+    computed:{
+    	currentValue:function () {
+        	return this.value
+        }
+	},
     template: "<div v-bind:style='styleObject'>" +
         "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
         "<div v-bind:style='inputOutStyleObject'>" +
         "<textarea v-bind:style='inputStyleObject' v-bind:placeholder='placeholder' " +
-        "v-bind:rows='rows' v-model='value'  " +
+        "v-bind:rows='rows' :value='currentValue' @input='handleInput'" +
         "v-bind:readonly='readonly' v-bind:disabled='disabled'>" +
         "</textarea>" +
         "</div>" +
         "</div>",
+	methods: {
+    	handleInput(event) {
+        	var value = event.target.value;
+        	this.$emit('input', value); //触发 input 事件，并传入新值
+    	}
+	}
 })
 //表单超链接
 Vue.component('self-feild-a', {
@@ -203,16 +233,15 @@ Vue.component('self-feild-a', {
             default: 'lable'
         },
         value: {
-            type: String,
             default: ''
         },
         href: {
             type: String,
-            default: '#'
+            default: 'javascript:void(0);'
         },
-        clickhref: {
+        filehref: {
         	type: String,
-        	default: '#'
+        	default: 'javascript:void(0);'
         },
     },
     data: function () {
@@ -245,7 +274,7 @@ Vue.component('self-feild-a', {
     },
     methods: {
     	aClick: function(){
-    		var url = "../self_ui/imgFrame.html?clickhref="+this.clickhref;
+    		var url = "../self_ui/imgFrame.html?filehref="+this.filehref;
     		
     		window.open(url);
         }
@@ -270,7 +299,7 @@ Vue.component('self-line', {
             styleObject: {
                 'width': '100%',
                 'height': this.height,
-                'background': '#E6E8EE',
+                'background': lineColor,
             }
         }
     },
@@ -292,7 +321,7 @@ Vue.component('self-feild-line', {
             lineStyleObject: {
                 'width': 'calc(100% - 12px)',
                 'height': this.height,
-                'background': '#E6E8EE',
+                'background': lineColor,
                 'margin-left': '12px',
             }
         }

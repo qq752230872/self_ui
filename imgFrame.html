@@ -11,27 +11,21 @@
 		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="/TazMobileOA/favicon.ico">
+	<link rel="stylesheet" href="../lib/weui/css/weui.css" />
+	<link rel="stylesheet" href="../lib/weui/css/weuix.css" />
 <title>Title</title>
 </head>
 	<body style="width:100%;height:100%;">
-		<iframe id="myFrame"
-			src='http://12.45.128.145:8080/TazAdministration/common/upload/file/wmdb/20190702/181174_761052_1562028523312/9967086662242527.jpg' 
-			width='100%' 
-			height='100%'>
-		</iframe>
+		<div id="app" style="width:100%;height:100%;">
+			<iframe v-bind:src="src" width="100%" height="100%">
+	
+			This browser does not support PDFs. : <a v-bind:href="src">Download PDF</a>
+			
+			</iframe>
+		</div>
 	</body>
-	<script type="text/javascript">
-	var clickhref = getUrlParam("clickhref");
-	var frame = document.getElementById('myFrame');
-	myFrame.src=clickhref;
-
-	function getUrlParam(name)
-	{
-		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-		var r = window.location.search.substr(1).match(reg);
-		if(r!= null)
-			return unescape(r[2]);
-		return null;
-	}
-	</script>
+	<script src="../lib/weui/js/zepto.min.js"></script>
+    <script src="../lib/weui/js/zepto.weui.js"></script>
+    <script src="../self_ui/vue.js"></script>
+    <script src="./imgFrame.js"></script>
 </html>
