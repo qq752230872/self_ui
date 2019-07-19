@@ -1,3 +1,4 @@
+/* BQYUI V1.1.4 */
 #3CBAFF 主色
 #030303 主要字体
 #768893 次要字体
@@ -14,3 +15,5 @@
 /*Version 1.1.3 2019-07-11*/
 1.修复input、textarea传值问题
 2.新增input、textarea自定义字体颜色功能
+/*Version 1.1.4 2019-07-18*/
+1.新增self-title、self-bottom-text组件

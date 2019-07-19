@@ -1,8 +1,11 @@
+var mainColor = '#3CBAFF';			//主色（蓝色）
+var greenColor = '#94D301';			//绿色
+var orangeColor = '#F87E4E';		//橙色
+var yellowColor = '#F7BF28';		//黄色
 var whiteColor = '#FFFFFF';			//白色
 var blackColor = '#000000';			//黑色
 var lineColor = '#E6E8EE';			//分割线颜色
 var backgroundColor = '#F8F9FB';	//背景色 
-var mainColor = '#3CBAFF';			//主色
 
 //按钮
 Vue.component('self-button', {
@@ -347,4 +350,59 @@ Vue.component('self-line-background', {
         }
     },
     template: "<div v-bind:style='styleObject' ></div>",
+})
+//标题
+Vue.component('self-title', {
+    props: {
+    	text: {
+        	default: '标题'
+    	},
+        font_size: {
+            default: '24px'
+        },
+        color: {
+        	default: mainColor
+        },
+        text_align: {
+            default: 'left'
+        },
+    },
+    data: function () {
+        return {
+            styleObject: {
+                'color': this.color,
+                'font-size': this.font_size,
+                'margin': '2px 14px',
+                'background': backgroundColor,
+                'text-align':this.text_align,
+            }
+        }
+    },
+    template: "<div v-bind:style='styleObject'>{{text}}</div>",
+})
+//底部提示文字
+Vue.component('self-bottom-text', {
+    props: {
+    	text: {
+        	default: '提示'
+    	},
+        font_size: {
+            default: '20px'
+        },
+        color: {
+        	default: orangeColor
+        },
+    },
+    data: function () {
+        return {
+            styleObject: {
+                'color': this.color,
+                'font-size': this.font_size,
+                'margin': '2px 14px',
+                'background': backgroundColor,
+                'text-align':'center',
+            }
+        }
+    },
+    template: "<div v-bind:style='styleObject'>{{text}}</div>",
 })
