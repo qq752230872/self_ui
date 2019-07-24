@@ -242,6 +242,61 @@ Vue.component('self-feild-a', {
             type: String,
             default: 'javascript:void(0);'
         },
+    },
+    data: function () {
+        return {
+            styleObject: {
+                'width': '100%',
+                'height': '50px',
+                'display': 'flex',
+                'flex-direction': 'row',
+                'justify-content': 'center',
+                'align-items': 'center',
+                'background': whiteColor,
+            },
+            lableStyleObject: {
+                'width': '33%',
+                'padding': '12px 14px',
+            },
+            aOutStyleObject: {
+                'width': '67%',
+                'padding': '12px 10px',
+                'overflow':'hidden',
+                'text-overflow': 'ellipsis',
+            },
+            aStyleObject: {
+                'width': '100%',
+                'min-height': '24px',
+                'font-size': '12px',
+            },
+        }
+    },
+    methods: {
+    	aClick: function(){
+    		window.location.href(this.href);
+        },
+    },
+    template: "<div v-bind:style='styleObject'>" +
+        "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
+        "<div v-bind:style='aOutStyleObject'>" +
+        "<a v-bind:style='aStyleObject' :href='href'>{{value}}</a>"+
+        "</div>" +
+        "</div>",
+})
+//表单超链接（文件转换）
+Vue.component('self-feild-file', {
+    props: {
+        lable: {
+            type: String,
+            default: 'lable'
+        },
+        value: {
+            default: ''
+        },
+        href: {
+            type: String,
+            default: 'javascript:void(0);'
+        },
         filehref: {
         	type: String,
         	default: 'javascript:void(0);'
@@ -277,11 +332,38 @@ Vue.component('self-feild-a', {
     },
     methods: {
     	aClick: function(){
-    		var url = "../self_ui/imgFrame.html?filehref="+this.filehref;
-    		
-    		window.open(url);
+    		this.fileConvert(this.filehref,this.value);
+        },
+        fileConvert: function(filePath,fileName){
+        	$.showLoading("文件有点大，请稍候...");
+        	var obj = {
+    			'fileUrlSelf':filePath,
+    			'fileName':fileName
+    		}
+    		$.ajax({
+    		    type: "get",
+    		    dataType:"json",
+    		    url: "/TazMobileOA/jersey/fileconvert/fileView",
+    		    data: obj,
+    		    success: function (result) {
+    		    	console.log("result_img");
+    		    	console.log(result);
+    		    	if(result.CODE == "0002"){
+    		    		$.toast("文件类型不支持","cancel");
+    		    	} else if(result.CODE == "0000"){
+        		    	window.location.href = result.FILEPATH;
+    		    	} else {
+    		    		$.toast("未知错误");
+    		    	}
+    		    },
+    		    error: function (err) {
+    		    	$.toptip("网络错误",2000);
+    		    },
+		        complete: function(XMLHttpRequest, textStatus){
+		        	$.hideLoading();
+		        },
+    		});
         }
-    
     },
     template: "<div v-bind:style='styleObject'>" +
         "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
