@@ -4,7 +4,7 @@ var orangeColor = '#F87E4E';		//橙色
 var yellowColor = '#F7BF28';		//黄色
 var whiteColor = '#FFFFFF';			//白色
 var blackColor = '#000000';			//黑色
-var lineColor = '#E6E8EE';			//分割线颜色
+var lineColor = '#DCE1E8';			//分割线颜色
 var backgroundColor = '#F8F9FB';	//背景色 
 
 //按钮
@@ -116,6 +116,7 @@ Vue.component('self-feild-input', {
             lableStyleObject: {
                 'width': '33%',
                 'padding': '12px 14px',
+                'font-weight': 'bold',
             },
             inputOutStyleObject: {
                 'width': '67%',
@@ -193,6 +194,7 @@ Vue.component('self-feild-textarea', {
             lableStyleObject: {
                 'width': '33%',
                 'padding': '12px 14px',
+                'font-weight': 'bold',
             },
             inputOutStyleObject: {
                 'width': '67%',
@@ -257,6 +259,7 @@ Vue.component('self-feild-a', {
             lableStyleObject: {
                 'width': '33%',
                 'padding': '12px 14px',
+                'font-weight': 'bold',
             },
             aOutStyleObject: {
                 'width': '67%',
@@ -316,6 +319,7 @@ Vue.component('self-feild-file', {
             lableStyleObject: {
                 'width': '33%',
                 'padding': '12px 14px',
+                'font-weight': 'bold',
             },
             aOutStyleObject: {
                 'width': '67%',
@@ -487,4 +491,110 @@ Vue.component('self-bottom-text', {
         }
     },
     template: "<div v-bind:style='styleObject'>{{text}}</div>",
+})
+//台州分行每个应用首页的入口布局
+Vue.component('self-index-entry', {
+    props: {
+    	href1: {
+        	default: 'javascript:void(0);'
+    	},
+    	title1:{
+    		default: 'title1'
+    	},
+    	description1:{
+    		default: 'description1'
+    	},
+    	src1:{
+    		default: ''
+    	},
+    	href2: {
+    		default: 'javascript:void(0);'
+		},
+		title2:{
+			default: ''
+		},
+		description2:{
+			default: ''
+		},
+		src2:{
+			default: ''
+		}
+    },
+    data: function () {
+        return {
+        	content: {
+        		'background':whiteColor,
+	        	'font': "14px/1.5 \"SF Pro SC\",\"SF Pro Text\",\"SF Pro Icons\",\"PingFang SC\",\"Helvetica Neue\",\"Helvetica\",\"Arial\",sans-serif",
+	        	'width':'100%',
+	        	'height':'80px',
+	        	'display':'flex',
+	        	'flex-direction':'row',
+	        	'align-items':'center',
+	        	'border-top':'solid 1px '+lineColor,
+	        	'border-bottom':'solid 1px '+lineColor,
+	        	'border-radius':'6px',
+	        	'box-shadow':'1px 1px 2px '+lineColor,
+            },
+            content_part:{
+            	'width':'49%',
+        		'height':'80%',
+        		'display':'flex',
+        		'flex-direction':'row',
+            },
+            line2:{
+            	'width':'1px',
+            	'height':'60%',
+            	'background':lineColor,
+            },
+            content_left:{
+            	'width':'70%',
+            	'display':'flex',
+            	'flex-direction':'column',
+            	'justify-content':'center',
+            },
+            content_title:{
+            	'font-size': '14px',
+            	'color': '#333333',
+            	'font-weight':'bold',
+            	'padding-left':'10px',
+            },
+            content_description:{
+            	'font-size': '12px',
+            	'color': '#999999',
+            	'padding-left':'10px',
+            	'margin-top':'5px',
+            },
+            content_right:{
+            	'width':'30%',
+            	'display':'flex',
+            	'align-items':'center',
+            },
+            content_right_img:{
+            	'width': '50%',
+        		'display': 'block',
+            }
+        }
+    },
+    template: 
+	"<div v-bind:style='content'>"+
+		"<a v-bind:href='href1' v-bind:style='content_part'>"+
+			"<div v-bind:style='content_left'>"+
+				"<div v-bind:style='content_title'>{{title1}}</div>"+
+				"<div v-bind:style='content_description'>{{description1}}</div>"+
+			"</div>"+
+			"<div v-bind:style='content_right'>"+
+				"<img v-bind:style='content_right_img' v-bind:src='src1'>"+
+			"</div>"+
+		"</a>"+
+		"<div v-bind:style='line2'></div>"+
+		"<a v-bind:href='href2' v-bind:style='content_part'>"+
+			"<div v-bind:style='content_left'>"+
+				"<div v-bind:style='content_title'>{{title2}}</div>"+
+				"<div v-bind:style='content_description'>{{description2}}</div>"+
+			"</div>"+
+			"<div v-bind:style='content_right'>"+
+				"<img v-bind:style='content_right_img' v-bind:src='src2'>"+
+			"</div>"+
+		"</a>"+
+	"</div>",
 })
