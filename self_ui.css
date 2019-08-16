@@ -1,9 +1,12 @@
 html{
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 body{
     width: 100%;
     margin: 0;
+    padding: 0;
     background: #F8F9FB;
 }
 input::-webkit-input-placeholder{
@@ -16,4 +19,6 @@ input::-webkit-input-placeholder{
 }
 #app{
     width: 100%;
+    margin: 0;
+    padding: 0;
 }

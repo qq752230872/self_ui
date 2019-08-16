@@ -1,4 +1,4 @@
-##Version 1.1.6
+##Version 1.1.7
 
 /*Version 1.1.2 2019-07-04*/
 1.增加表单超链接
@@ -16,3 +16,6 @@
 
 /*Version 1.1.6 2019-07-31*/
 1.新增self-index-entry组件
+
+/*Version 1.1.7 2019-08-16*/
+1.修复input显示bug，增加input的font_size属性

@@ -100,7 +100,10 @@ Vue.component('self-feild-input', {
         color: {
         	type: String,
         	default: blackColor
-        }
+        },
+        font_size: {
+	        default: '14px'
+	    },
     },
     data: function () {
         return {
@@ -117,16 +120,17 @@ Vue.component('self-feild-input', {
                 'width': '33%',
                 'padding': '12px 14px',
                 'font-weight': 'bold',
+                'font-size': '16px',
             },
             inputOutStyleObject: {
                 'width': '67%',
                 'padding': '12px 10px',
             },
             inputStyleObject: {
-                'width': '100%',
+                'width': '98%',
                 'border': '0',
                 'min-height': '24px',
-                'font-size': '14px',
+                'font-size': this.font_size,
                 'color': this.color
             },
         }
@@ -195,6 +199,7 @@ Vue.component('self-feild-textarea', {
                 'width': '33%',
                 'padding': '12px 14px',
                 'font-weight': 'bold',
+                'font-size': '16px',
             },
             inputOutStyleObject: {
                 'width': '67%',
@@ -260,6 +265,7 @@ Vue.component('self-feild-a', {
                 'width': '33%',
                 'padding': '12px 14px',
                 'font-weight': 'bold',
+                'font-size': '16px',
             },
             aOutStyleObject: {
                 'width': '67%',
@@ -320,6 +326,7 @@ Vue.component('self-feild-file', {
                 'width': '33%',
                 'padding': '12px 14px',
                 'font-weight': 'bold',
+                'font-size': '16px',
             },
             aOutStyleObject: {
                 'width': '67%',
@@ -354,6 +361,8 @@ Vue.component('self-feild-file', {
     		    	console.log(result);
     		    	if(result.CODE == "0002"){
     		    		$.toast("文件类型不支持","cancel");
+    		    	} else if(result.CODE == "0001"){
+    		    		$.toast("文件下载异常","cancel");
     		    	} else if(result.CODE == "0000"){
         		    	window.location.href = result.FILEPATH;
     		    	} else {
