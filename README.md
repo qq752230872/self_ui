@@ -1,4 +1,4 @@
-##Version 1.1.7
+##Version 1.1.8
 
 /*Version 1.1.2 2019-07-04*/
 1.增加表单超链接
@@ -19,3 +19,6 @@
 
 /*Version 1.1.7 2019-08-16*/
 1.修复input显示bug，增加input的font_size属性
+
+/*Version 1.1.8 2019-09-11*/
+1.self-title组件增加margin_top和margin_bottom属性

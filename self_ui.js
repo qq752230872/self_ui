@@ -461,13 +461,19 @@ Vue.component('self-title', {
         text_align: {
             default: 'left'
         },
+        margin_top:{
+        	default: '2px'
+        },
+        margin_bottom:{
+	    	default: '2px'
+	    },
     },
     data: function () {
         return {
             styleObject: {
                 'color': this.color,
                 'font-size': this.font_size,
-                'margin': '2px 14px',
+                'margin': this.margin_top + ' 14px ' + this.margin_bottom + ' 14px',
                 'background': backgroundColor,
                 'text-align':this.text_align,
             }
