@@ -2,12 +2,16 @@ html{
     width: 100%;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 body{
     width: 100%;
     margin: 0;
     padding: 0;
     background: #F8F9FB;
+}
+a {
+    text-decoration: none;
 }
 input::-webkit-input-placeholder{
     color: #C2CCD0;
