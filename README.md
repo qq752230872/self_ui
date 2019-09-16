@@ -1,4 +1,4 @@
-##Version 1.1.8
+##Version 1.1.9
 
 /*Version 1.1.2 2019-07-04*/
 1.增加表单超链接
@@ -22,3 +22,6 @@
 
 /*Version 1.1.8 2019-09-11*/
 1.self-title组件增加margin_top和margin_bottom属性
+
+/*Version 1.1.9 2019-09-18*/
+1.input placeholder字体大小改为14px

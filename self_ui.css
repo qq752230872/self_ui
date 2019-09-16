@@ -15,7 +15,7 @@ a {
 }
 input::-webkit-input-placeholder{
     color: #C2CCD0;
-    font-size: 16px;
+    font-size: 14px;
     transform: translate(0, 2px);
 }
 :focus{
