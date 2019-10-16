@@ -17,6 +17,13 @@ input::-webkit-input-placeholder{
     color: #C2CCD0;
     font-size: 14px;
     transform: translate(0, 2px);
+    font-family:"Arial"
+}
+textarea::-webkit-input-placeholder{
+    color: #C2CCD0;
+    font-size: 14px;
+    transform: translate(0, 2px);
+    font-family:"Arial"
 }
 :focus{
     outline:none;

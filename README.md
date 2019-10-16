@@ -1,4 +1,4 @@
-##Version 1.1.9
+##Version 1.1.10
 
 /*Version 1.1.2 2019-07-04*/
 1.增加表单超链接
@@ -25,3 +25,6 @@
 
 /*Version 1.1.9 2019-09-18*/
 1.input placeholder字体大小改为14px
+
+/*Version 1.1.10 2019-10-16*/
+1.统一input和textarea的placeholder字体样式
