@@ -78,6 +78,10 @@ Vue.component('self-feild-input', {
             type: String,
             default: 'lable'
         },
+        lable_color:{
+            type: String,
+        	default: blackColor
+        },
         placeholder: {
             type: String,
             default: ''
@@ -121,6 +125,7 @@ Vue.component('self-feild-input', {
                 'padding': '12px 14px',
                 'font-weight': 'bold',
                 'font-size': '16px',
+                'color': this.lable_color,
             },
             inputOutStyleObject: {
                 'width': '67%',
@@ -162,6 +167,10 @@ Vue.component('self-feild-textarea', {
             type: String,
             default: 'lable'
         },
+        lable_color:{
+            type: String,
+        	default: blackColor
+        },
         rows: {
         	default: 3
         },
@@ -200,6 +209,7 @@ Vue.component('self-feild-textarea', {
                 'padding': '12px 14px',
                 'font-weight': 'bold',
                 'font-size': '16px',
+                'color': this.lable_color,
             },
             inputOutStyleObject: {
                 'width': '67%',

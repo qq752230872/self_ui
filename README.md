@@ -1,4 +1,4 @@
-##Version 1.1.10
+##Version 1.1.11
 
 /*Version 1.1.2 2019-07-04*/
 1.增加表单超链接
@@ -28,3 +28,6 @@
 
 /*Version 1.1.10 2019-10-16*/
 1.统一input和textarea的placeholder字体样式
+
+/*Version 1.1.1 2019-11-01*/
+1.新增input和textarea的lable颜色属性
