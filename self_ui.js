@@ -108,6 +108,10 @@ Vue.component('self-feild-input', {
         font_size: {
 	        default: '14px'
 	    },
+        red_flag:{
+            type: Boolean,
+       		default: false
+        }
     },
     data: function () {
         return {
@@ -146,7 +150,10 @@ Vue.component('self-feild-input', {
         }
 	},
     template: "<div v-bind:style='styleObject'>" +
-        "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
+        "<div v-bind:style='lableStyleObject'>" +
+        "{{lable}}" +
+        "<span style='color:red;' v-if='red_flag'>*</span>" +
+        "</div>" +
         "<div v-bind:style='inputOutStyleObject'>" +
         "<input v-bind:style='inputStyleObject' v-bind:placeholder='placeholder' " +
         "v-bind:type='type' :value='currentValue' @input='handleInput'" +
@@ -192,6 +199,13 @@ Vue.component('self-feild-textarea', {
         color: {
         	type: String,
         	default: blackColor
+        },
+        font_size: {
+	        default: '14px'
+	    },
+        red_flag:{
+            type: Boolean,
+       		default: false
         }
     },
     data: function () {
@@ -219,7 +233,7 @@ Vue.component('self-feild-textarea', {
                 'width': '100%',
                 'border': '0',
                 'min-height': '24px',
-                'font-size': '14px',
+                'font-size': this.font_size,
                 'color': this.color
             }
         }
@@ -230,7 +244,10 @@ Vue.component('self-feild-textarea', {
         }
 	},
     template: "<div v-bind:style='styleObject'>" +
-        "<div v-bind:style='lableStyleObject'>{{lable}}</div>" +
+        "<div v-bind:style='lableStyleObject'>" +
+        "{{lable}}" +
+        "<span style='color:red;' v-if='red_flag'>*</span>" +
+        "</div>" +
         "<div v-bind:style='inputOutStyleObject'>" +
         "<textarea v-bind:style='inputStyleObject' v-bind:placeholder='placeholder' " +
         "v-bind:rows='rows' :value='currentValue' @input='handleInput'" +
